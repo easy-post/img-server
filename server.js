@@ -14,7 +14,7 @@ const postImagePath = pathUtil.join('public', 'images', 'post');
 const localPostImagePath = pathUtil.join(__dirname, postImagePath);
 
 app.use(express.static("public"));
-app.use(cors({origin:"https://post-react.onrender.com", allowedHeaders:true, credentials:true, methods:["POST","GET"]}));
+app.use(cors({origin:"https://post-react.onrender.com", allowedHeaders:"Authorization, Content-Type", credentials:true, methods:["POST","GET"]}));
 app.use(bodyParser.json({
   limit:"50mb"
 }));
