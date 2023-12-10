@@ -23,7 +23,6 @@ app.use(bodyParser.urlencoded({
   extended:false
 }))
 
-pool.connect();
 
 // 경로/uuid로 파일 저장 후, path, file_name, post_id 로 insert
 // 경로/images/post/uuid.확장자로 저장 후, 경로 반환.
