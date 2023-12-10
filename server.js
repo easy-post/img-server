@@ -1,21 +1,16 @@
 const express = require("express");
-const { Pool } = require("pg");
 const fs = require("fs").promises;
 const pathUtil = require("path");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const { v4 } = require("uuid");
 
-const db_setting = require("./config/db");
-
 const hostName = "127.0.0.1";
 const port = 4444;
 
-const pool = new Pool(db_setting);
 const app = express();
 
 const postImagePath = pathUtil.join('public', 'images', 'post');
-const postExternalImagePath = `images/post`
 const localPostImagePath = pathUtil.join(__dirname, postImagePath);
 
 app.use(express.static("public"));
