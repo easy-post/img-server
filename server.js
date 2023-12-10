@@ -34,8 +34,8 @@ app.post("/save", (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Content-Type-Options, Accept, X-Requested-With, Origin, Access-Control-Request-Method, Access-Control-Request-Headers");
     res.header("Access-Control-Allow-Methods", "POST");
-    res.setHeader("Access-Control-Allow-Credentials", true);
-    res.setHeader("Access-Control-Allow-Private-Network", true);
+    res.header("Access-Control-Allow-Credentials", true);
+    res.header("Access-Control-Allow-Private-Network", true);
 
     res.send(`http://${hostName}:${port}/images/post/${result}`);
   })
