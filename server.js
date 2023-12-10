@@ -29,6 +29,9 @@ app.use(bodyParser.urlencoded({
 app.post("/save", (req, res) => {
   // console.log(req.body);
   res.setHeader("Access-Control-Allow-Origin", "https://post-react.onrender.com");
+  response.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // 모든 HTTP 메서드 허용
+  response.setHeader('Access-Control-Allow-Credentials', 'true'); // 클라이언트와 서버 간에 쿠키 주고받기 허용
+
   saveImage(localPostImagePath, req.body.file, req.body.type)
   .then((result)=>{
     res.send(`http://${hostName}:${port}/images/post/${result}`);
