@@ -31,9 +31,9 @@ app.post("/save", (req, res) => {
 
   saveImage(localPostImagePath, req.body.file, req.body.type)
   .then((result)=>{
-    res.setHeader("Access-Control-Allow-Origin","https://post-react.onrender.com");
-    res.setHeader("Access-Control-Allow-Headers","https://post-react.onrender.com");
-    res.setHeader("Access-Control-Allow-Methods","POST");
+    res.header("Access-Control-Allow-Origin", "https://post-react.onrender.com");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Methods", "POST");
     res.send(`http://${hostName}:${port}/images/post/${result}`);
   })
 });
