@@ -14,7 +14,7 @@ const postImagePath = pathUtil.join('public', 'images', 'post');
 const localPostImagePath = pathUtil.join(__dirname, postImagePath);
 
 app.use(express.static("public"));
-app.use(cors({origin:"https://post-react.onrender.com", allowedHeaders:"Authorization, Content-Type", credentials:true, methods:["POST","GET"]}));
+app.use(cors({origin:"https://post-react.onrender.com/", allowedHeaders:"Authorization, Content-Type", credentials:true, methods:["POST","GET", "OPTIONS"]}));
 app.use(bodyParser.json({
   limit:"50mb"
 }));
@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({
 // 경로/images/post/uuid.확장자로 저장 후, 경로 반환.
 app.post("/save", (req, res) => {
   // console.log(req.body);
-  res.setHeader("Access-Control-Allow-Origin", "https://post-react.onrender.com");
+  res.setHeader("Access-Control-Allow-Origin", "https://post-react.onrender.com/");
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // 모든 HTTP 메서드 허용
   res.setHeader('Access-Control-Allow-Credentials', 'true'); // 클라이언트와 서버 간에 쿠키 주고받기 허용
 
