@@ -14,7 +14,7 @@ const postImagePath = pathUtil.join('public', 'images', 'post');
 const localPostImagePath = pathUtil.join(__dirname, postImagePath);
 
 app.use(express.static("public"));
-app.use(cors({origin:"*"}));
+app.use(cors({origin:"https://post-react.onrender.com", allowedHeaders:true, credentials:true, methods:["POST","GET"]}));
 app.use(bodyParser.json({
   limit:"50mb"
 }));
@@ -31,12 +31,6 @@ app.post("/save", (req, res) => {
 
   saveImage(localPostImagePath, req.body.file, req.body.type)
   .then((result)=>{
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Content-Type-Options, Accept, X-Requested-With, Origin, Access-Control-Request-Method, Access-Control-Request-Headers");
-    res.header("Access-Control-Allow-Methods", "POST");
-    res.header("Access-Control-Allow-Credentials", true);
-    res.header("Access-Control-Allow-Private-Network", true);
-
     res.send(`http://${hostName}:${port}/images/post/${result}`);
   })
 });
