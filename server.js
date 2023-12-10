@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({
 // 경로/images/post/uuid.확장자로 저장 후, 경로 반환.
 app.post("/save", (req, res) => {
   // console.log(req.body);
-  console.log("hi");
+  res.setHeader("Access-Control-Allow-Origin", "https://post-react.onrender.com");
   saveImage(localPostImagePath, req.body.file, req.body.type)
   .then((result)=>{
     res.send(`http://${hostName}:${port}/images/post/${result}`);
